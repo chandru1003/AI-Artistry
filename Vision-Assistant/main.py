@@ -34,7 +34,7 @@ image=""
 if uploaded_file is not None:
     image =Image.open(uploaded_file)
     st.image(image, caption="uploaded image", use_column_width=True)
-submit=st.button("Chat")    
+submit=st.button("Generate")    
 
 if submit:
     image_data=input_step(uploaded_file)
