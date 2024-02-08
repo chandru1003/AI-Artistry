@@ -1,5 +1,6 @@
 import os
 import io
+import pandas as pd
 import base64
 import streamlit as st
 from PIL import Image 
@@ -8,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 import google.generativeai as genai
 
-genai.configure(api_key="Google_api_key")
+genai.configure(api_key="AIzaSyDtgDbVzO-mnsW2PIOY1xT5Gt6GxOG2jyo")
 
 def get_gemini_response(input,pdf_cotent,prompt):
     model=genai.GenerativeModel('gemini-pro-vision')
@@ -39,6 +40,23 @@ def input_pdf_setup(uploaded_file):
     else:
         raise FileNotFoundError("No file uploaded")
 
+def write_to_excel(response):
+    print(response)
+    #response_values = [value.strip() for value in response.split('|') if value.strip()]
+    rows = response.split('\n')[2:]
+    columns_values=response.split('\n')
+    print("\n")
+    print("rows are")
+    print(rows)
+    print("\n")
+    columns = [col.strip() for col in columns_values[0].split('|') if col.strip()]
+    print("columns are")
+    print(columns)
+    data_values = [value.strip() for value in rows[0].split('|') if value.strip()]
+    # Creating a DataFrame
+    df = pd.DataFrame([data_values], columns=columns)
+    df.to_csv('ResumeTrackStatus.csv', index=False)
+        
 ## Streamlit App
 
 st.set_page_config(page_title="HireBot")
@@ -47,43 +65,34 @@ input_text=st.text_area("Job Description: ",key="input")
 uploaded_file=st.file_uploader("Upload your resume(PDF)...",type=["pdf"])
 
 
-if uploaded_file is not None:
+if uploaded_file and input_text is not None:
     st.write("PDF Uploaded Successfully")
 
 
 submit1 = st.button("Tell Me About the Resume")
 
-submit3 = st.button("Percentage match")
 
 input_prompt1 = """
- You are an experienced Technical Human Resource Manager,your task is to review the provided resume against the job description. 
-  Please share your professional evaluation on whether the candidate's profile aligns with the role. 
- Highlight the strengths and weaknesses of the applicant in relation to the specified job requirements.
-"""
+Act as an experienced Technical Human Resource Manager, your objective is to evaluate the provided resume against the job description. Your assessment should focus on determining whether the candidate's profile aligns with the role requirements. Please provide your professional evaluation using the following table structure:
 
-input_prompt3 = """
-You are an skilled ATS (Applicant Tracking System) scanner with a deep understanding of data science and ATS functionality, 
-your task is to evaluate the resume against the provided job description. give me the percentage of match if the resume matches
-the job description. First the output should come as percentage and then keywords missing and last final thoughts.
-"""
+| Name | Email | Phone | Experience | Skills | Percentage | Strengths | Weaknesses | Decision (selected or not) |
+|------|-------|-------|------------|--------|------------|-----------|-------------|---------------------------|
+,"""
+						
 
 if submit1:
-    if uploaded_file is not None:
+    if uploaded_file and input_text is not None:
         pdf_content=input_pdf_setup(uploaded_file)
         response=get_gemini_response(input_prompt1,pdf_content,input_text)
         st.subheader("The Repsonse is")
         st.write(response)
+        print("response is :\n")
+        write_to_excel(response)
+        
     else:
-        st.write("Please uplaod the resume")
+        st.write("Resume or job description not found")
 
-elif submit3:
-    if uploaded_file is not None:
-        pdf_content=input_pdf_setup(uploaded_file)
-        response=get_gemini_response(input_prompt3,pdf_content,input_text)
-        st.subheader("The Repsonse is")
-        st.write(response)
-    else:
-        st.write("Please uplaod the resume")
+
 
 
 
