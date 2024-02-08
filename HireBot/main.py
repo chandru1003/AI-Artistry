@@ -3,13 +3,12 @@ import io
 import pandas as pd
 import base64
 import streamlit as st
-from PIL import Image 
 import pdf2image
 from dotenv import load_dotenv 
 load_dotenv()
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyDtgDbVzO-mnsW2PIOY1xT5Gt6GxOG2jyo")
+genai.configure(api_key="Google_api_key")
 
 def get_gemini_response(input,pdf_cotent,prompt):
     model=genai.GenerativeModel('gemini-pro-vision')
