@@ -1,2 +1,18 @@
-Name,Email,Phone,Experience,Skills,Percentage,Strengths,Weaknesses,Decision (selected or not)
-Chandrakanth Kongari,chandrukongari@gmail.com,9901945318,1.5 years,"Python, C, Java, pandas, numpy, scikit-learn, Tkinter, Robotic Enterprise Framework, UiPath, Power BI, Azure DevOps, Git, MySQL, PLSQL",76.43%,"Programming Languages, Data Analysis, Machine Learning",Needs more experience,Not selected
+Name,Email,Phone,Experience,Skills,matching Percentage,Strengths,Weaknesses,Decision (selected or not)
+
+Chandrakanth Kongari,chandrukongari@gmail.com,918,Internship,"Data Analysis, Machine Learning, Python, SQL,Tableau",75%,"Strong technical skills, Experience in data analysis, Good communication skills",Lack of experience in a full-time role,Shortlist
+
+Chandrakanth Kongari,chandrukongari@gmail.com,918,3 years and 7 months,"Python, R, Java, C, SQL, PL/SQL, Dataware, HTML, CSS, Power BI, Excel, Trello, Git, Azure Data Factory, SAP",75%,"Strong technical skills, Experience in data analysis, Good communication skills","Lack of experience in some areas, such as machine learning",Shortlist for interview
+
+Chandrakanth Kongari,chandrukongari@gmail.com,9092 ,years as a Data Analyst,"Python, Java, SQL, PL/SQL, Excel, SSMS, GIT, Power BI, Azure Data Factory",75%,"Strong technical skills, Experience in data analysis, Good communication skills","Lack of experience in some areas, such as machine learning",On Hold
+
+Chandrakanth Kongari,chandrukongari@gmail.com,90918,2 years,"Python, R, C, Java, pandas, numpy, scikit-learn, Tkinter, Robotic Enterprise Framework, UiPath, Power BI, Azure DevOps, Git, MySQL, PLSQL",76.47%,"Strong technical skills, Experience in RPA, Good communication skills",Lack of experience in machine learning and artificial intelligence,Shortlist for interview
+
+Chandrakanth Kongari,chandrukongari@gmail.com,9118,3 years as a Data Analyst,"Python, SQL, R, Machine Learning, Data Visualization",85%,"Strong technical skills, experience in data analysis, good communication skills",Lack of experience in the engineering domain,Schedule an interview
+
+Chandrakanth Kongari,chandrukongari@gmail.com,901, years,"Python, Java, R, SQL, PL/SQL, Dataware, HTML, CSS",85%,"Strong technical skills, Experience in data analysis, Good communication skills","Lack of experience in some areas, such as machine learning",Schedule an interview
+
+Chandrakanth Kongari,chandrukongari@gmail.com,90118,2 years,"Python, Java, SQL, PL/SQL, Machine Learning, Data Analysis, Data Visualization",85%,"Strong technical skills, Experience in data analysis and visualization, Good communication skills","Lack of experience in some areas, such as Power BI and Tableau",Schedule an interview
+
+Chandrakanth Kongari,chandrukongari@gmail.com,9918,2 years,"Python, R, C, Java, pandas, numpy, scikit-learn, Tkinter, Robotic Enterprise Framework, UiPath, Power BI, Azure DevOps, Git, MySQL, PLSQL",76.47%,"Good technical skills, Experience in RPA and Data Analysis",Less experience in the IT industry,Shortlist
+
