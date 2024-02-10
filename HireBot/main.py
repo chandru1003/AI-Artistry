@@ -57,18 +57,11 @@ def write_to_excel(response, file_path):
         
 ## Streamlit App
 
-st.set_page_config(page_title="HireBot")
+st.set_page_config(page_title="HireBot", page_icon="icon\898_815783_TopCV_BeatingtheBotsATS_Hero.ico")
 st.header("Hirebot")
+
 input_text = st.text_area("Job Description: ", key="input")
-#uploaded_file = st.file_uploader("Upload your resume(PDF)...", type=["pdf"])
 folder_path = st.text_input("Enter the folder path where resume PDF files are present: ")
-#file_path = st.text_input("Enter the file path of the resume PDF files present:")
-
-'''if uploaded_file and input_text is not None:
-    st.write("PDF Uploaded Successfully")
-'''
-#submit1 = st.button("Tell Me About the Resume")
-
 
 if st.button("Tell Me About the Resumes"):
 
@@ -87,8 +80,7 @@ Act as an experienced Technical Human Resource Manager, your objective is to eva
 | Name | Email | Phone | Experience | Skills | matching Percentage | Strengths | Weaknesses | Decision (selected or not) |
 |------|-------|-------|------------|--------|------------|-----------|-------------|---------------------------|
 
-note:where column matching Percentage means  how much resume matching with job descrpition  
- The "matching Percentage" column represents how well the resume matches the job description. Make decisions based on the following criteria:
+note: The "matching Percentage" column represents how well the resume matches the job description. Make decisions based on the following criteria:
 
 If the matching Percentage is greater than 80%, recommend scheduling an interview.
 If the matching Percentage is between 70% and 80%, consider placing the resume on hold.
