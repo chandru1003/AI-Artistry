@@ -15,9 +15,10 @@ pip install -r requirements.txt
     ```bash
     streamlit run main.py
     ```
-- Upload a PDF resume and provide a job description.
+- Enter the path of resume pdf files and provide a job description.
 - Click the "Tell Me About the Resume" button to generate an evaluation.
 - Review the evaluation provided in the table format.
+- and also ResumetrackerStatus.csv will write the output data 
 
 
 
