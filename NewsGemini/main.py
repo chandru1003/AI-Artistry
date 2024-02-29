@@ -1,30 +1,44 @@
 import streamlit as st
 import google.generativeai as genai
 
+# Configure Gemini model with API key
+genai.configure(api_key="Google_api_key")
 
-genai.configure(api_key="Your_Google_API_Key")
+# Function to generate newspaper article
+def generate_newspaper_article(raw_article):
+    prompt = """
+   Act as a newspaper editor, analyze the raw inputs, and generate an India newspaper-style article. Include the following elements:
 
-
-def generate_newspaper_article(full_article):
-  
+Headline: The main title of the article, summarizing its content and attracting readers' attention.
+Byline: The author's name or credit line indicating who wrote the article.
+Lead: The introductory paragraph that provides a brief overview or summary of the article's main points.
+Body: The main content of the article, consisting of multiple paragraphs elaborating on the topic.
+Tail: The concluding section that may include additional information, quotes, or reflections on the topic.
+    
+    """ + raw_article + """
+    """
+    # Use Gemini model to generate newspaper article
     model = genai.GenerativeModel('gemini-pro')
-    response = model.generate_content(full_article)
+    response = model.generate_content(prompt)
     return response.text
 
 # Streamlit app
 def main():
     st.title("NewsGemini: Newspaper Article Generator")
     st.markdown("---")
-    
 
-    full_article = st.text_area("Input Full Article", height=200)
+    # Input full article
+    raw_article = st.text_area("Input Full Article", height=200)
 
     if st.button("Generate Newspaper Article"):
-        if full_article:
-           
-            newspaper_article = generate_newspaper_article(full_article)
+        if raw_article:
+            # Generate newspaper article
+            newspaper_article = generate_newspaper_article(raw_article)
             st.subheader("Generated Newspaper Article:")
-            st.write(newspaper_article)
+     
+            st.subheader(newspaper_article.split('\n')[0])  # Display headline
+            
+            st.write("\n".join(newspaper_article.split('\n')[1:]))  # Display article content
         else:
             st.warning("Please input a full article.")
 
